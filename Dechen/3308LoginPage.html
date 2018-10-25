@@ -1,23 +1,36 @@
 <html>
 <head>
-<title>Login | Bytes By Dr. Comp</title>
-	<link rel="stylesheet" type="text/css" href="3308LoginPage.css">
+<title>Account | Bytes By Dr. Comp</title>
+	<link rel="stylesheet" href="3308LoginPage.css">
 <body>
-	<div class="loginbox">
-	<img src="3308LoginIcon.png" class="avatar">
-		<h1>Login Here:</h1>
-		<form>
-			<p>Username</p>
-			<input type="text" pattern="[^\s]+" name="" placeholder="Enter Username"/>
-			<p>Password</p>
-			<input type="password" pattern="[^' ']+" name="" placeholder="Enter Password"/>
-			<input type="submit" name="" value="Login">
-			<!--
-			<a href="#">Forget your password?</a><br>
-			<a href="#">Don't have an account? Sign up</a>
-			-->
+	<div class="login-page">
+	<div class="form">
+		<img src="3308LoginIcon.png" class="avatar">
+		<form class="register-form">
+			<!-- want to put restrictions on username and password characters -->
+			<input type="text" placeholder="Create a username" required>
+			<input type="password" placeholder="Create a password" required>
+			<button>Sign up</button>
+		<p class="message">Already have an account? <a href="#">Login</a></p>
+		</form>
+
+		<form class="login-form">
+		<input type="text" placeholder="Username">
+		<input type="password" placeholder="Password">
+		<button>Login</button>
+		<p class="message">Don't have an account? <a href="#">Sign up</a></p>
+
 		</form>
 	</div>
+	</div>
+
+	<script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+
+	<script>
+		$('.message a').click(function()
+		{$('form').animate({height: "toggle", opacity: "toggle"}, "slow"); }
+		);
+	</script>
 </body>
 </head>
 </html>
