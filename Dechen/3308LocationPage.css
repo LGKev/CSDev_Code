@@ -5,17 +5,7 @@ body
 	background-position: center;
 }
 
-.avatar
-{
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-	position: absolute;
-	top: -50px;
-	left: calc(50% - 50px);
-}
-
-.login-page
+.location-page
 {
 	width: 375px;
 	padding: 10% 0 0;
@@ -69,29 +59,4 @@ body
 .form button:hover, .form button:active
 {
 	background: #ffd854;
-}
-
-.form .message
-{
-	font-family: monospace;
-	margin: 14px 0 0;
-	color: black;
-	font-size: 14px;
-}
-
-.form .message a
-{
-	font-family: monospace;
-	color: #4998df;
-	text-decoration: none;
-}
-
-.form .message a:hover
-{
-	color: #ffd854;
-}
-
-.form .register-form
-{
-	display: none;
 }
