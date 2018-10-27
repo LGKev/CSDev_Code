@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/LGKev/CSDev_Code#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "pg": "^7.6.0"
   }
 }
