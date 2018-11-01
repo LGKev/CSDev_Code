@@ -25,6 +25,10 @@ const User = sequelize.define('user', {
 	password: {
 		type: Sequelize.STRING,
 		allowNull: false
+	},
+	lastused_iref: {
+		type: Sequelize.STRING,
+		allowNull: true
 	}
 });
 

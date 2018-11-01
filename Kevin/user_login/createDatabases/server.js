@@ -35,6 +35,15 @@ server.use(session({
 	}
 }));
 
+
+server.use((req,res, next) => {
+	if(req.cookies.user_sid && req.session.user){
+		res.clearCookie('user_sid');
+	}
+	next();
+});
+
+
 const pool = new pg.Pool({
 	user: 'sysadmin',
 	host: '127.0.0.1',
@@ -48,6 +57,7 @@ server.set('port', process.env.PORT || 3000);
 // check for logged in users.
 var sessionChecker = (req, res, next) => {
 	if(req.session.user && req.cookies.user_sid){
+		console.log('cookies checked, ok')
 		res.redirect('/loggedin');
 	}
 	else{
@@ -69,7 +79,8 @@ server.route('/signup').get(sessionChecker, (request, response)=>{
 	.post((request, response) =>{
 		User.create({ //using sequalize to get data. 'users' is the table name. but User is the variable/object 
 			username: request.body.signup_username, //TODO: get the field value from dechen.
-			password: request.body.signup_password
+			password: request.body.signup_password,
+			lastused_iref: request.body.signup_username//TODO: total hack i know.
 		})
 		.then(user=>{
 			request.session.user = user.dataValues; //TODO what is this?
@@ -77,8 +88,9 @@ server.route('/signup').get(sessionChecker, (request, response)=>{
 			console.log('server.js: 77: ');
 		})
 		.catch(error => {
-			response.redirect('/signup');
+			response.redirect('/signup'); //TODO is this even working wtf.
 			console.log('server.js: 81');
+			console.log('server.js: sign up failing');
 		});
 	});
 
@@ -113,7 +125,7 @@ server.route('/login')
 		}else{
 		request.session.user = user.dataValues;
 		response.redirect('/loggedin');
-		console.log('fail: should have shown logged in test page');
+		console.log('we logged in');
 		}
 	});
 });
@@ -131,6 +143,7 @@ if(request.session.user && request.cookies.user_sid){
 
 
 server.get('/logout', (request, response)=>{
+	console.log('logout route exectued');
 	if(request.session.user && request.cookies.user_id){
 	response.clearCookie('user_id');
 	response.redirect('/');

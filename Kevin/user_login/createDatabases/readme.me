@@ -1,4 +1,9 @@
-I am at the stage of testing. 
+// tutorial used had to modify a few things
+//because of deprecated stuff
+https://www.codementor.io/mayowa.a/how-to-build-a-simple-session-based-authentication-system-with-nodejs-from-scratch-6vn67mcy3
+
+
+I am at the stagde of testing. 
 
 I can display Dechen's login page. I can extract the variables from the user input.
 
@@ -20,6 +25,32 @@ and User has
 	validPassword:
 
 goign to pause. 
+
+// fixes
+I needed to change the way sequelize model was created
+
+then I needed to server.use(express.stati(pat.join(__dirname +'/HTML')));
+to get the css file sheet to load properly.
+
+i can force validPassword = true and get routed to a loggedin.html file
+but if I am using just bcryp to check I get always false.
+
+/* ======================================================================== */
+// tests 1
+/* ======================================================================== */
+now I want to know if my database can correctly add a user of if an error is occuring
+
+
+/* ======================================================================== */
+// tests 2
+/* ======================================================================== */
+i am focusing on the signup. because i think that if I signup a user 
+the user will be added correctly to the database.
+then when I do a validate password the password will be actually correct. 
+and hopefully return true.
+
+
+
 
 
 
