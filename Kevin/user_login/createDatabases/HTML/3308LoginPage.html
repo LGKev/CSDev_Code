@@ -1,15 +1,16 @@
 <html>
+	<link rel="stylesheet" id="test" type="text/css" href="./3308LoginPage.css">
 <head>
+	<link rel="stylesheet" id="tes2t" type="text/css" href="./3308LoginPage.css">
 <title>Account | Bytes By Dr. Comp</title>
-	<link rel="stylesheet" href="3308LoginPage.css">
 <body>
 	<div class="login-page">
 	<div class="form">
 		<img src="3308LoginIcon.png" class="avatar">
-		<form class="register-form">
+		<form class="register-form" action="/signup" method="post">
 			<!-- want to put restrictions on username and password characters -->
-			<input type="text" placeholder="Create a username" required>
-			<input type="password" placeholder="Create a password" required>
+			<input type="text" name='signup_username' placeholder="Create a username" required>
+			<input type="password" name='signup_password' placeholder="Create a password" required>
 			<button>Sign up</button>
 		<p class="message">Already have an account? <a href="#">Login</a></p>
 		</form>
