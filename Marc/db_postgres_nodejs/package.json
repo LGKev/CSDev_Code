@@ -1,0 +1,17 @@
+{
+  "name": "db_postgres_nodejs",
+  "version": "1.0.0",
+  "description": "I have the hardest time finding resources for this and now there is that joke, every 3 minutes a new javascript frame work appears.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "pg": "^7.5.0"
+  }
+}
