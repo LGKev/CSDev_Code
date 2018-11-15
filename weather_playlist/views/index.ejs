@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Location | Bytes By Dr. Comp</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div class="container">
+      <fieldset>
+        <form action="/" method="post">
+          <input name="city" type="text" class="weather-input" placeholder="Enter a City" required>
+          <input type="submit" class="get-weather-button" value="Get a Playlist">
+        </form>
+        <div class="weather-container">
+          
+          <% if(weather !== null && temp > 50){ %>
+            <p class="message">Today's Weather:</p>
+            <p class="weather"><%= weather %></p>
+            <div class="label">
+              <p class="message">Playlist of the Day:</p>
+            </div>
+            <iframe src="https://open.spotify.com/embed/user/spotify/playlist/37i9dQZF1DX7KNKjOK0o75" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" align='middle'></iframe>
+          <% } %>
+
+          <% if(weather !== null && temp <= 50){ %>
+            <p class="message">Today's Weather:</p>
+            <p class="message"><%= weather %></p>
+            <div class="label">
+              <p class="message">Playlist of the Day:</p>
+            </div>
+            <iframe src="https://open.spotify.com/embed/user/spotify/playlist/37i9dQZF1DXbvABJXBIyiY" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" align='middle'></iframe>
+          <% } %>
+
+          <% if(error !== null){ %>
+            <p><%= error %></p>
+          <% } %>
+        </div>
+      </fieldset>
+    </div>
+  </body>
+</html>
