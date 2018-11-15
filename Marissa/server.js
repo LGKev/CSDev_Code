@@ -9,11 +9,12 @@ require('dotenv').load();
 let apiKey = process.env.MY_API_KEY;
 
 app.use(express.static('public'));
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
 app.get('/', function (req, res) {
-  res.render('index', {weather: null, error: null});
+  res.render('index', {weather: null, error: null, temp: null});
 })
 
 
@@ -24,17 +25,17 @@ app.post('/', function (req, res, ) {
 
   request(url, function (err, response, body ) {
     if(err){
-      res.render('index', {weather: null, error: 'Error, please try again'});
+      res.render('index', {weather: null, error: 'Error, please try again', temp: null});
     } else {
       let weather = JSON.parse(body)
       if(weather.main == undefined){
-        res.render('index', {weather: null, error: 'Error, please try again'});
+        res.render('index', {weather: null, error: 'Error, please try again', temp: null});
       } else {
         let weatherText = `It's ${weather.main.temp} degrees in ${weather.name}!`;
         let temp = `${weather.main.temp}`;
         console.log(temp);
         conversion(temp);
-        res.render('index', {weather: weatherText, error: null});
+        res.render('index', {weather: weatherText, error: null, temp: temp});
       }
     }
   });
