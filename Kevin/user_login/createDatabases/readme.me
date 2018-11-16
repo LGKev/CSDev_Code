@@ -1,0 +1,103 @@
+node: node -v result: 10.12.0
+	npm -v result: 6.4.1
+	nvm --version result: 0.33.8
+
+
+be sure to check thsese again because the lab i'm doing right now is changing my dependencies.
+to get nvm
+
+
+// tutorial used had to modify a few things
+//because of deprecated stuff
+https://www.codementor.io/mayowa.a/how-to-build-a-simple-session-based-authentication-system-with-nodejs-from-scratch-6vn67mcy3
+
+
+		Server is my 'app' in this example. 
+
+
+I am at the stagde of testing. 
+
+I can display Dechen's login page. I can extract the variables from the user input.
+
+I am currently only testing existing users in the database and see if we can
+display a secondary page. 
+
+so far I cannot get past the validation of the password.
+
+The function validPassword is undefined/not a function.
+
+"Unhandled rejection TypeError: User.validPassword is not a function
+    at /home/kkuwata/Documents/GroupProject/CSDev_Code/Kevin/user_login/createDatabases/server.js:89:18
+    at tryCatcher (/home/kkuwata/Documents/GroupProject/CSDev_Code/Kevin/user_login/createDatabases/node_modules/bluebird/js/release/util.js:16:23)"
+
+I am not sure what the source of the error is because I see module.exports User;
+
+and User has
+	has "instanceMethods:"
+	validPassword:
+
+goign to pause. 
+
+// fixes
+I needed to change the way sequelize model was created
+
+then I needed to server.use(express.stati(pat.join(__dirname +'/HTML')));
+to get the css file sheet to load properly.
+
+i can force validPassword = true and get routed to a loggedin.html file
+but if I am using just bcryp to check I get always false.
+
+/* ======================================================================== */
+// tests 1
+/* ======================================================================== */
+now I want to know if my database can correctly add a user of if an error is occuring
+/ **************************************** /
+// 	result from test 1:
+/ **************************************** /
+I was able to get the database to add a user correctly by forcing a new field in the model
+I was only tracking password/user name but when the add was being executed I was mising the
+iref field. The iref field is in the database I built but wasn't being included in the 'add'
+postgres command. the sotution was to add a field called iref and allow null. then 
+when a new entry is created we jsut put the user name into that field.
+this allowed the add insert command to actually work to the table. 
+
+
+
+/* ======================================================================== */
+// tests 2
+/* ======================================================================== */
+i am focusing on the signup. because i think that if I signup a user 
+the user will be added correctly to the database.
+then when I do a validate password the password will be actually correct. 
+and hopefully return true.
+/ **************************************** /
+// 	result from test 2:
+/ **************************************** /
+my guess was correct. soon as I got the database in the correct form and could
+add a user with the sign up page I could actually get the user into the database
+then once they were in the database I could use login
+and check the password with bcrypt and get the result correctly. (true).
+then from there I am directed to the logged_in.html page. 
+
+/* ======================================================================== */
+// issue 3: can't logout
+/* ======================================================================== */
+I can't log out of the web page, cookie not deleted
+/ **************************************** /
+// 	result from test 2:
+/ **************************************** /
+I had not included the line 
+
+server.use((req, res, next) => {
+	if(req.cookies.user_sid && req.session. user){
+		res.clearCookie('user_sid';)
+	}
+	next();
+});
+
+then everything worked again
+
+
+
+
+

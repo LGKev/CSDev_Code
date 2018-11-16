@@ -1,0 +1,23 @@
+{
+  "name": "userlogin",
+  "version": "1.0.0",
+  "description": "create a server and database. check to see if user is in database return true or false",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "kevin kuwata",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "m": "^1.5.1",
+    "morgan": "^1.9.1",
+    "pg": "^7.6.0",
+    "sequelize": "^4.41.0"
+  }
+}

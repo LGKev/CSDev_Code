@@ -13,14 +13,15 @@
           <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
           <input type="submit" class="ghost-button" value="Get Weather">
         </form>
+        
         <% if(weather !== null){ %>
           <p><%= weather %></p>
-          <img src="https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/16191840/Newfoundland-onWhite-012-1.jpg">
         <% } %>
 
         <% if(error !== null){ %>
           <p><%= error %></p>
         <% } %>
+
       </fieldset>
     </div>
   </body>
