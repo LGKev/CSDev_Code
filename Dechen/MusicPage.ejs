@@ -7,15 +7,21 @@
 <body>
 	<div id="locator">
 	<div class="label">
+	<% if (weather !== null) { %>
 		<p class="message">Today's Weather:</p>
 	</div>
 
 	<p class="weather"><%= weather %></p>
+	<%= temp %>
 
 	<div class="label">
 		<p class="message">Playlist of the Day:</p>
 	</div>
-	<iframe src="https://open.spotify.com/embed/user/spotify/playlist/37i9dQZF1DX2rBR3X9E86S" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+	<iframe src=<%= playlist %> width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> } %>
+
+	<% if (error == null)
+		{ %>
+		<p><%= error %></p>
 	</div>
 </body>
 </head>
