@@ -15,22 +15,13 @@
         </form>
         <div class="weather-container">
           
-          <% if(weather !== null && temp > 50){ %>
+          <% if(weather !== null){ %>
             <p class="message">Today's Weather:</p>
             <p class="weather"><%= weather %></p>
             <div class="label">
               <p class="message">Playlist of the Day:</p>
             </div>
-            <iframe src="https://open.spotify.com/embed/user/spotify/playlist/37i9dQZF1DX7KNKjOK0o75" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" align='middle'></iframe>
-          <% } %>
-
-          <% if(weather !== null && temp <= 50){ %>
-            <p class="message">Today's Weather:</p>
-            <p class="message"><%= weather %></p>
-            <div class="label">
-              <p class="message">Playlist of the Day:</p>
-            </div>
-            <iframe src="https://open.spotify.com/embed/user/spotify/playlist/37i9dQZF1DXbvABJXBIyiY" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" align='middle'></iframe>
+            <iframe src="https://open.spotify.com/embed/user/spotify/playlist/<%= playlist %>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" align='middle'></iframe>
           <% } %>
 
           <% if(error !== null){ %>
