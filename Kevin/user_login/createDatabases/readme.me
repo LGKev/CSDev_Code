@@ -13,6 +13,39 @@ to get nvm
 I am now editing this repo to make it run on mac, chrome, safair. wtf is going
 on idk so many things are broken but work fin ein inlinux
 
+I was able to force a check login by not using bcrypt.
+
+there is an issue with adding a new user. I am using safarit to test
+becasue chrome is being lame and refuse to load server.js.
+
+so now i force the check and it works. 
+
+ok so the issue was the model for sequlize. I had at one point made the database
+and didn't have udpateAT and createdAt. they are case sensitive. so you modify
+the table to create those columns and allow null. but hte issue is the quotes
+need be escaped to get them to be part of the query to create the table the in
+the first place. 
+
+the createdatabase.js now should create a table called uers and add 1 user.
+actually this already has been proven to work but the bcrypt password wasn't
+working.
+
+so here is how you do it. you first must create a user with the bcrypt so the 
+password is set correctly!
+
+also the real reason this failed was becasue the model for sequelize. I had
+defined createdAt and updatedAt incorrectly so when an add query was issued
+we weren't able to add the user becasue the data field din't match up or the
+data was wrong type or soemthing but bottom line was fixing User model for
+sequalize in the user.js file and making it match the server.js /signup route
+where it does "user.create...." the user create was failing.
+
+to be honest, lookin at it again, i think i'm at the original file and the real
+reason this wasn't working was becasue of bcrypt checking unsalted passwords
+created by my createtables.js script. so in reality we should really make sure
+that createtables.js adds the user but only after a password was made 
+
+
 
 
 // tutorial used had to modify a few things

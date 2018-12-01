@@ -32,14 +32,6 @@ const User = sequelize.define('user', {
 	lastused_iref: {
 		type: Sequelize.STRING,
 		allowNull: true
-	},
-	createdAt: {
-		type: Sequelize.STRING,
-		allowNull: true
-	},
-	updatedAt: {
-		type: Sequelize.STRING,
-		allowNull: true
 	}
 });
 
@@ -52,11 +44,15 @@ User.associate = function(models){
 */
 
 User.prototype.validPassword = function(password){
+
+
 	var test_result =  bcrypt.compareSync(password, this.password);
 	console.log('users.js: 30: password:  ' + password + '  checked:  ' + this.password);
 	console.log('users.js: 30: pw compare result  ' + test_result);
 	return bcrypt.compareSync(password, this.password);
 	//return true; //TODO: if I force this true I can re route the page.
+	//had to do with the hash not being used for users i made, need to hash
+	//pw
 };
 
 User.addHook('beforeCreate', 'saltPW' , (user) => {

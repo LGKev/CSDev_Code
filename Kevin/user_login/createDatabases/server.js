@@ -76,26 +76,25 @@ server.get('/', sessionChecker, (request, response) => {
 });
 
 server.route('/signup').get(sessionChecker, (request, response)=>{
-	//response.sendFile(__dirname + '/PATH/TO/DECHEN/PAGE!');
 	response.sendFile(__dirname + '/HTML/3308LoginPage.html');
 	})
 	.post((request, response) =>{
 		User.create({ //using sequalize to get data. 'users' is the table name. but User is the variable/object 
-			username: request.body.signup_username, //TODO: get the field value from dechen.
+			username: request.body.signup_username, 
 			password: request.body.signup_password,
-			lastused_iref: request.body.signup_username,//TODO: total hack i know.
-			createdAt: ,
-			updatedAt: ,
-		})
+			lastused_iref: request.body.signup_username		
+			})
 		.then(user=>{
-			request.session.user = user.dataValues; //TODO what is this?
+			request.session.user = user.dataValues; 
 			response.redirect('/loggedin');
 			console.log('server.js: 77: ');
+			console.log('new user created: '+ username );
+			console.log('new user created pw:: '+ password );
 		})
 		.catch(error => {
-			response.redirect('/signup'); //TODO is this even working wtf.
+			response.redirect('/signup');
 			console.log('server.js: 81');
-			console.log('server.js: sign up failing');
+			console.log('server.js: sign up failing, user not added!');
 		});
 	});
 
@@ -123,8 +122,10 @@ server.route('/login')
 	User.findOne({ where: {username: username } }).then(function (user){
 		if(!user){
 		response.redirect('/login');
-		console.log('fail 1');
+		console.log('fail 1: user not in database');
 		}else if(!user.validPassword(password)){
+		console.log('user: ' + user.password);
+		console.log('user pw: ' + password);
 		response.redirect('/login');
 		console.log('fail 2');
 		}else{
