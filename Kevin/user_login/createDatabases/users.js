@@ -49,7 +49,15 @@ User.prototype.validPassword = function(password){
 	var test_result =  bcrypt.compareSync(password, this.password);
 	console.log('users.js: 30: password:  ' + password + '  checked:  ' + this.password);
 	console.log('users.js: 30: pw compare result  ' + test_result);
-	return bcrypt.compareSync(password, this.password);
+	if(test_result == false){
+ //try simplier pw unsalted creaetd by the createuser.js file
+		if(this.password == password){
+			test_result = true;
+		}
+	}	
+
+
+	return test_result;
 	//return true; //TODO: if I force this true I can re route the page.
 	//had to do with the hash not being used for users i made, need to hash
 	//pw
