@@ -47,7 +47,10 @@ server.use((req,res, next) => {
 const pool = new pg.Pool({
 	user: 'sysadmin',
 	host: '127.0.0.1',
-	database: 'groupPojectDatabasse',
+	//database: 'groupPojectDatabasse', //mac is case sensitive for postgres
+	//like it becomes all lowercase even with create database
+	//groupProjectDatabase becomes groupprojectdatabase (watch spelling)
+	database: 'grouppojectdatabase',
 	port: '5432'
 });
 
@@ -80,7 +83,9 @@ server.route('/signup').get(sessionChecker, (request, response)=>{
 		User.create({ //using sequalize to get data. 'users' is the table name. but User is the variable/object 
 			username: request.body.signup_username, //TODO: get the field value from dechen.
 			password: request.body.signup_password,
-			lastused_iref: request.body.signup_username//TODO: total hack i know.
+			lastused_iref: request.body.signup_username,//TODO: total hack i know.
+			createdAt: ,
+			updatedAt: ,
 		})
 		.then(user=>{
 			request.session.user = user.dataValues; //TODO what is this?

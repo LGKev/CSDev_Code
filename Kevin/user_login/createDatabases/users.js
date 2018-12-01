@@ -4,7 +4,10 @@
 var Sequelize = require('sequelize');
 var bcrypt = require('bcrypt');
 
-var sequelize = new Sequelize	('postgres://sysadmin:12345@localhost:5432/groupProjectDatabase');
+//linux version:
+//var sequelize = new Sequelize	('postgres://sysadmin:12345@localhost:5432/groupProjectDatabase');
+//mac version: case sensitivity removed
+var sequelize = new Sequelize	('postgres://sysadmin:12345@localhost:5432/groupprojectdatabase');
 
 sequelize.authenticate().then(()=> {
 	console.log('connection success');
@@ -27,6 +30,14 @@ const User = sequelize.define('user', {
 		allowNull: false
 	},
 	lastused_iref: {
+		type: Sequelize.STRING,
+		allowNull: true
+	},
+	createdAt: {
+		type: Sequelize.STRING,
+		allowNull: true
+	},
+	updatedAt: {
 		type: Sequelize.STRING,
 		allowNull: true
 	}

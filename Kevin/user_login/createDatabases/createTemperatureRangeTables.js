@@ -5,7 +5,8 @@ const pg = require('pg');
 const pool = new pg.Pool({
 	user: 'sysadmin',
 	host: '127.0.0.1',
-	database: 'groupProjectDatabase',
+	//database: 'groupProjectDatabase',
+	database: 'groupprojectdatabase',
 	password: '12345',
 	port: '5432'
 });
@@ -69,13 +70,28 @@ pool.query("INSERT INTO temp70plus(iref_link, playlistName) VALUES('spotify:trac
 // 							User Login Database.
 /* ======================================================================================================================================================================== */
 /* create the table for temperature range 0 - 30 *F*/
-pool.query("CREATE TABLE IF NOT EXISTS users(id SERIAL PRIMARY KEY, userName  VARCHAR(255) NOT NULL, passWord VARCHAR(255) NOT NULL, lastUsed_iref VARCHAR(255) NOT NULL)  ", (err, res) =>{
+pool.query("CREATE TABLE IF NOT EXISTS users(id SERIAL PRIMARY KEY, userName  VARCHAR(255) NOT NULL, passWord VARCHAR(255) NOT NULL, lastUsed_iref VARCHAR(255) NOT NULL, \"createdAt\" VARCHAR(255), \"updatedAt\" VARCHAR(255))", (err, res) =>{
 	console.log(err, res);
 	console.log('succes: created table: users');
 });
+ //"createdAt" VARCHAR(255) NOT NULL, "updatedAt" VARCHAR(255) NOT NULL) 
+
+/*
+pool.query("ALTER TABLE groupprojectdatabase ADD COLUMN "createdAt" VARCHAR(255)", (err, res) =>{
+	console.log(err, res);
+	console.log('succes: created table: users');
+});
+*/
+/*
+pool.query("ALTER TABLE groupprojectdatabase ADD COLUMN "updatedAt" VARCHAR(255)", (err, res) =>{
+	console.log(err, res);
+	console.log('succes: created table: users');
+});
+*/
+
 
 /* Add songs to the Table just created  */
-pool.query("INSERT INTO users (userName, password, lastUsed_iref) VALUES('KevinKuwata', 'kk123',  'spotify:track:2swu91llDBxeb75tMETplV')", (err, res) =>{
+pool.query("INSERT INTO users (userName, password, lastUsed_iref) VALUES('KevinKuwata', 'kk123',  'spotify:track:2swu91llDBxeb75tMETplV' )", (err, res) =>{
 	console.log(err, res);
 	console.log('added 1 user');
 });
