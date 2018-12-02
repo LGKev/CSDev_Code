@@ -146,7 +146,7 @@ server.get('/loggedin', (request, response) =>{
 if(request.session.user && request.cookies.user_sid){
 	//response.sendFile(__dirname +'/HTML/loggedin.html');
 //	response.sendFile(__dirname +'/HTML/test_loggedin.html');
-    response.render('index', {weather: null, error: 'Error weather.main null, please try again. is api valid?', temp: null, playlist    : null});
+    response.render('index', {weather: null, error: 'server.js::149 this ran, means index.ejs was picked up ', temp: null, playlist    : null});
 
 
 	console.log('did this run?'); //if I force validpassword = true, yes this runs
