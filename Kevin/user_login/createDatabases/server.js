@@ -9,6 +9,8 @@ var cookieParser = require('cookie-parser');
 var User = require('./users.js');
 var path = require('path');
 
+server.set('view engine', 'ejs'); // set ejs engine
+server.set('views', './views');
 
 /* this was absolute key in getting the style sheet to show up
  *	error in chrome console:
@@ -111,8 +113,8 @@ server.get('/3308LoginIcon.png', function(req, res){
 /* Check to see if the pass word is in the database return true or false */
 server.route('/login')
 	.get(sessionChecker, (request, response) => {
-	//response.sendFile(__dirname + 'PATH/TO/DECHEN/PAGE');
 	response.sendFile(__dirname + '/HTML/3308LoginPage.html');
+	//response.render('index');
 	//response.sendFile(__dirname + '/HTML/basic.html');
 	console.log('showing the form');
 	})
@@ -143,7 +145,10 @@ server.route('/login')
 server.get('/loggedin', (request, response) =>{
 if(request.session.user && request.cookies.user_sid){
 	//response.sendFile(__dirname +'/HTML/loggedin.html');
-	response.sendFile(__dirname +'/HTML/test_loggedin.html');
+//	response.sendFile(__dirname +'/HTML/test_loggedin.html');
+    response.render('index', {weather: null, error: 'Error weather.main null, please try again. is api valid?', temp: null, playlist    : null});
+
+
 	console.log('did this run?'); //if I force validpassword = true, yes this runs
 	}else{
 	response.redirect('/login');	
