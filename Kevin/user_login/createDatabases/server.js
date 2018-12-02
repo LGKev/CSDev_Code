@@ -1,6 +1,7 @@
 const express = require('express'),
       server = express(),
-      pg = require('pg');
+      pg = require('pg'); //my database connection
+      pgp = require('pg-promise'); //other way of database connection
 
 var session = require('express-session');
 var bodyParser = require('body-parser');
@@ -53,6 +54,8 @@ const pool = new pg.Pool({
 	database: 'grouppojectdatabase',
 	port: '5432'
 });
+
+
 
 server.set('port', process.env.PORT || 3000);
 
