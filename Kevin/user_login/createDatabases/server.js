@@ -1,7 +1,10 @@
 const express = require('express'),
       server = express(),
       pg = require('pg'); //my database connection
-      pgp = require('pg-promise'); //other way of database connection
+      pgp = require('pg-promise'),
+      request = require('request');; //other way of database connection
+var db = require('./database.js');
+
 
 var session = require('express-session');
 var bodyParser = require('body-parser');
@@ -46,6 +49,7 @@ server.use((req,res, next) => {
 	next();
 });
 
+let apiKey = process.env.MY_API_KEY; // this may work?
 
 const pool = new pg.Pool({
 	user: 'sysadmin',
@@ -169,3 +173,83 @@ server.get('/logout', (request, response)=>{
 
 
 server.listen(server.get('port'), ()=> console.log(`Sever started on port ${server.get('port')}`));
+
+
+
+
+/* Marissa's Work repoduced here, trying to integrate  */
+server.post('/getWeather', function (req, res, ) {
+   let city = req.body.city;
+   //let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`
+
+let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=38e6606df37bfe25e9eefcbf213cda6c`
+
+
+   request(url, function (err, response, body ) {
+     if(err){
+       res.render('index', {weather: null, error: 'server.js::187 Error, please try again', temp: null,     playlist: null});
+     } else {
+       let weather = JSON.parse(body)
+console.log(weather);
+       if(weather.main == undefined){
+         res.render('index', {weather: null, error: 'kevi\'s server.js::191 Error, please try again', temp: null, playlist: null});
+       } else {
+         let weatherText = `It's ${weather.main.temp} degrees in ${weather.name}!`;
+         let temp = `${weather.main.temp}`;
+         console.log(temp);
+         let indicator = conversion(temp);
+         //playlistURL = "5dN1bcsHyvBhViD2ANdYn9";
+         if(indicator === 0){
+           var query = 'select playlist from cold order by random() limit 1';
+           db.one(query)
+               .then(function (row) {
+                 console.log(row.playlist);
+                   res.render('index', {
+                       weather: weatherText,
+                       error: null,
+                       temp: temp,
+                       playlistURL: row.playlist
+                   })
+               })
+               .catch(function (err) {
+                   res.render('index', {
+                     weather: null,
+                     error: 'server.js::213: Error, please try again please',
+                     temp: null,
+                     playlist: null})
+               })
+             }
+
+            else {
+             var query = 'select playlist from hot order by random() limit 1';
+             db.one(query)
+               .then(function (row) {
+                 console.log(row.playlist);
+                   res.render('index', {
+                       weather: weatherText,
+                       error: null,
+                       temp: temp,
+                       playlistURL: row.playlist
+                   })
+               })
+               .catch(function (err) {
+                   res.render('index', {
+                     weather: null,
+                     error: 'Error, please try again please',
+                     temp: null,
+                     playlist: null})
+               })
+            }
+           }
+
+       }
+   });
+ })
+
+ function conversion(temp) {
+   if(temp>70){
+     return 1;
+   } else {
+     return 0;
+   }
+ }

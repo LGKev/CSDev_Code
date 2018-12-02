@@ -18,3 +18,5 @@ applied.
 so i look at console inside chrome. wtf chrome and says refused to apply
 loggedin:1 stylesheet from becasue its mime type 
 apparently something about a comment inside the style sheet?
+
+
