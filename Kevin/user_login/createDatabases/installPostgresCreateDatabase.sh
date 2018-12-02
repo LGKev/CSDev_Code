@@ -6,10 +6,10 @@
 export PGUSER=sysadmin;
 export PGHOST=127.0.0.1;
 
-
-#mac: run this
+#/* ======================================================== */
+		#mac: run this
+#/* ======================================================== */
 brew install postgres
-
 #start postgress
 pg_ctl -D /usr/local/var/postgres start && brew services start postgresql
 
@@ -20,7 +20,7 @@ postgres -V
 psql postgres -tc "SELECT 1 FROM pg_database WHERE datname =
 'groupprojectdatabase'" | grep -q 1 || psql -U postgres -c "CREATE DATABASE
 groupprojectdatabase"
-
+#^^^^^^ Not 100% on that. but I think that's what I did. If I recalll. 
 
 
 #x/#/psql postgres -c "CREATE DATABASE groupprojectdatabasee"
