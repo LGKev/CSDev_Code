@@ -1,5 +1,4 @@
-User inputs a location, a request is made to Open Weather to fetch the temperature, a query is made to fetch a playlist stored
-in a database and then displayed to the user using EJS.
+User inputs a location, a request is made to Open Weather to fetch the temperature, a query is made to fetch a playlist stored in a database and then displayed to the user using EJS.
 
 I completed  - 
     fetch to the API to get the temperature of the inputted location
