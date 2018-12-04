@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
 const app = express();
-var db = require('../database');
+var db = require('./database');
 
 
 require('dotenv').load();
