@@ -1,5 +1,7 @@
 /* ===============================================================*/
 /* ===============================================================*/
+To run, set up a database according to the postgres set up guide, Make a user Sysadmin with password 12345, at port 5432 at host:127.0.0.1
+Then you can run node server.js and it shold run. If it doesn't follow the errors until fixed. 
 	Summary:
   - Users are stored in groupprojectdatabase
   - Weather Tables are stored in weather2 (these hold the iref portion)
@@ -19,6 +21,9 @@ node: node -v result: 10.12.0
 
 fixing dependencies
 nvm install 10.12.0
+
+May need to delete and reinstall the node modules directory. 
+
 
 /* ===============================================================*/
 /* ===============================================================*/
