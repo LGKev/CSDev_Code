@@ -2,6 +2,9 @@
 /* ===============================================================*/
 To run, set up a database according to the postgres set up guide, Make a user Sysadmin with password 12345, at port 5432 at host:127.0.0.1
 Then you can run node server.js and it shold run. If it doesn't follow the errors until fixed. 
+Go to
+https://github.com/LGKev/CSDev_Code/tree/master/Kevin/user_login/createDatabases
+
 	Summary:
   - Users are stored in groupprojectdatabase
   - Weather Tables are stored in weather2 (these hold the iref portion)
