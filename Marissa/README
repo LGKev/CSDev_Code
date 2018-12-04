@@ -1,0 +1,10 @@
+User inputs a location, a request is made to Open Weather to fetch the temperature, a query is made to fetch a playlist stored
+in a database and then displayed to the user using EJS.
+
+I completed  - 
+    fetch to the API to get the temperature of the inputted location
+    the creation and linking of the database that will hold the playlists
+    created a condition that will determine which table to pull the playlist from
+    wrote the query to do that
+    rendered the EJS to display the new data
+    
