@@ -1,10 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
-const app = express()
-var db = require('database');
-module.exports = app;
-
+const app = express();
+var db = require('../database');
 
 
 require('dotenv').load();
@@ -37,38 +35,59 @@ app.post('/', function (req, res, ) {
         let weatherText = `It's ${weather.main.temp} degrees in ${weather.name}!`;
         let temp = `${weather.main.temp}`;
         console.log(temp);
-        conversion(temp);
+        let indicator = conversion(temp);
         //playlistURL = "5dN1bcsHyvBhViD2ANdYn9";
-        //res.render('index', {weather: weatherText, error: null, temp: temp, playlist: playlistURL});
-      }
-    }
-  });
-  var query = 'SELECT playlist FROM cold ORDER BY RAND() LIMIT 1';
+        if(indicator === 0){
+          var query = 'select playlist from cold order by random() limit 1';
+          db.one(query)
+              .then(function (row) {
+                console.log(row.playlist);
+                  res.render('index', {
+                      weather: weatherText,
+                      error: null,
+                      temp: temp,
+                      playlistURL: row.playlist
+                  })
+              })
+              .catch(function (err) {
+                  res.render('index', {
+                    weather: null, 
+                    error: 'Error, please try again please', 
+                    temp: null, 
+                    playlist: null})
+              })      
+            }
+           else {
+            var query = 'select playlist from hot order by random() limit 1';
+            db.one(query)
+              .then(function (row) {
+                console.log(row.playlist);
+                  res.render('index', {
+                      weather: weatherText,
+                      error: null,
+                      temp: temp,
+                      playlistURL: row.playlist
+                  })
+              })
+              .catch(function (err) {
+                  res.render('index', {
+                    weather: null, 
+                    error: 'Error, please try again please', 
+                    temp: null, 
+                    playlist: null})
+              }) 
+           } 
+          }
 
-    db.any(query)
-      .then(function (row) {
-          response.render('index', {
-            weather: weatherText, 
-            error: null, 
-            temp: temp, 
-            playlist: row.playlist })
-      })
-      .catch(function (err) {
-          // display error message in case an error
-          request.flash('error', err);
-          response.render('store/list', {
-            weather: null, 
-            error: "error", 
-            temp: null, 
-            playlist: null })
-      })
+      }
+  });
 })
 
 function conversion(temp) {
   if(temp>70){
-    console.log('hot')
+    return 1;
   } else {
-    console.log('cold')
+    return 0;
   }
 }
 
