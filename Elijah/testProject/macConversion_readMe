@@ -1,0 +1,38 @@
+I had to start usign my mac as my VM was showing signs of failure.
+key differences between mac and linux causing build to fail.
+
+this is the documentation on how to clone the repo for user login, create
+a database, connect to it, install postgres, create credentials. 
+
+
+
+1) clone the repo
+git clone 
+
+2) delete the node-modules folder
+rm -rf node_modules
+
+3) do a node -v check and make sure its 10.12.0
+node -v
+
+4) if its not then do 
+nvm install 10.12.0
+
+5) npm install 
+	to reinit the node_modules for the current OS
+
+6) set up postgres on mac with same credentials
+https://www.codementor.io/engineerapart/getting-started-with-postgresql-on-mac-osx-are8jcopb
+
+7)postgres version check 10.6
+
+8) configure postgres
+psql postgres 
+
+well this is going terribly i can't create a user and not sure how to 
+give environmental variables for connection host and user?
+
+
+
+
+
