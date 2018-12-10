@@ -27,7 +27,7 @@ server.use(express.static(path.join(__dirname, '/HTML')));
 server.use(bodyParser.urlencoded({extended:true}));
 
 //server.use(bodyParser.json()); //parse data from an HTML form
-//left over from other project. 
+//left over from other project.
 
 server.use(cookieParser()); //allows access to the cookies stored in browser
 
@@ -77,7 +77,7 @@ var sessionChecker = (req, res, next) => {
 	}
 };
 /* =========================================================================== */
-// 				Routes 
+// 				Routes
 /* =========================================================================== */
 /* check if a user is already logged in on arrive a home. /  */
 server.get('/', sessionChecker, (request, response) => {
@@ -88,13 +88,13 @@ server.route('/signup').get(sessionChecker, (request, response)=>{
 	response.sendFile(__dirname + '/HTML/3308LoginPage.html');
 	})
 	.post((request, response) =>{
-		User.create({ //using sequalize to get data. 'users' is the table name. but User is the variable/object 
-			username: request.body.signup_username, 
+		User.create({ //using sequalize to get data. 'users' is the table name. but User is the variable/object
+			username: request.body.signup_username,
 			password: request.body.signup_password,
-			lastused_iref: request.body.signup_username		
+			lastused_iref: request.body.signup_username
 			})
 		.then(user=>{
-			request.session.user = user.dataValues; 
+			request.session.user = user.dataValues;
 			response.redirect('/loggedin');
 			console.log('server.js: 77: ');
 			console.log('new user created: '+ username );
@@ -156,7 +156,7 @@ if(request.session.user && request.cookies.user_sid){
 
 	console.log('did this run?'); //if I force validpassword = true, yes this runs
 	}else{
-	response.redirect('/login');	
+	response.redirect('/login');
 	}
 });
 
@@ -192,7 +192,7 @@ let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperi
        let weather = JSON.parse(body)
 console.log(weather);
        if(weather.main == undefined){
-         res.render('index', {weather: null, error: 'kevi\'s server.js::191 Error, please try again', temp: null, playlist: null});
+         res.render('index', {weather: null, error: 'kevins server.js::191 Error, please try again', temp: null, playlist: null});
        } else {
          let weatherText = `It's ${weather.main.temp} degrees in ${weather.name}!`;
          let temp = `${weather.main.temp}`;
