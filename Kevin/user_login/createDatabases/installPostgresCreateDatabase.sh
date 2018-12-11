@@ -3,7 +3,8 @@
 #summary: hopefully will install the correct npm and postgres, as well as create
 #the database called: groupprojectdatabase (case sensitive).
 
-export PGUSER=sysadmin;
+
+export PGUSER=sysadmin; #
 export PGHOST=127.0.0.1;
 
 #/* ======================================================== */
@@ -13,7 +14,8 @@ brew install postgres
 #start postgress
 pg_ctl -D /usr/local/var/postgres start && brew services start postgresql
 
-#check version
+#check version:q
+
 postgres -V
 
 #create database if one does not exist....
@@ -25,6 +27,9 @@ groupprojectdatabase"
 
 #x/#/psql postgres -c "CREATE DATABASE groupprojectdatabasee"
 psql postgres -U sysadmin -c "\c groupprojectdatabase"
+
+#create a user table!! with the varchar 255 field non null
+
 
 psql postgres -U sysadmin -c "INSERT INTO users (userName, password,
 lastUsed_iref) VALUES('testscript', 'shell', 'shell')"

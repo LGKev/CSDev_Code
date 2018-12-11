@@ -9,6 +9,10 @@ const dbConfig = {
                 // if you did not set a password
 };
 
+//create user sysadmin with encrypted password '12345';
+// within postgres
+
+
 var db = pgp(dbConfig);
 
 module.exports = db;
