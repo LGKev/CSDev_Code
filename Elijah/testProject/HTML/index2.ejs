@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Location | Bytes By Dr. Comp</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div class="container">
+      <fieldset>
+        <form action="/getWeather" method="post"> 
+          <input name="city" type="text" class="weather-input"
+placeholder="Enter a m.a.d.d City" required>
+          <input type="submit" class="get-weather-button" value="GGGGGGet a Playlist">
+        </form>
+        <div class="weather-container">
+          
+          <% if(weather !== null){ %>
+            <p class="message">Today's Weather:</p>
+            <p class="weather"><%= weather %></p>
+            <div class="label">
+              <p class="message">Playlist of the Day:</p>
+            </div>
+            <iframe src="https://open.spotify.com/embed/user/spotify/playlist/<%= playlistURL %>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" align='middle'></iframe>
+          <% } %>
+
+          <% if(error !== null){ %>
+            <p><%= error %></p>
+          <% } %>
+        </div>
+      </fieldset>
+    </div>
+  </body>
+</html>
