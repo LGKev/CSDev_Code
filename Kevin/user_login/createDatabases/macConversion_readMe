@@ -29,10 +29,15 @@ https://www.codementor.io/engineerapart/getting-started-with-postgresql-on-mac-o
 8) configure postgres
 psql postgres 
 
-well this is going terribly i can't create a user and not sure how to 
-give environmental variables for connection host and user?
+9) set up the sysadmin user in postgres pw 12345 port 5432 
+host:127.0.0.1
 
 
+Note: this only covers the actual user acceptance testing. not the regression or
+automated testing
+
+
+To see a demo refer to the milestone7 pdf with a link to a google drive video.
 
 
 
