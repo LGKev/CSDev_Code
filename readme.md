@@ -20,15 +20,13 @@ theemed music would be loaded.
 
 ![](https://github.com/LGKev/CSDev_Code/blob/master/Kevin/preview.png)
 
-##Code
-=======
 ## Code
-The code can be found at CSDev_Code/Kevin/user_login/createDatabases
+The code can be found at [CSDev_Code/Kevin/user_login/createDatabases](https://github.com/LGKev/CSDev_Code/blob/master/Kevin/user_login/createDatabases/instructions.md)
 and run node server.js. Be sure to have postgres running with a database created
 with the instructions within the above directory. 
 
 ### Video Demo
-- [] (link)
+[Video Demo](https://drive.google.com/file/d/1BetMoUQPU-Td88dh2oz67tmlxAp8fVcO/view)
 
 ### Technologies
 - Backend: PostgreSQL
