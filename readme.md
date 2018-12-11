@@ -18,6 +18,9 @@ temperature. For example, if the termpature is greater than 70 degress F summer
 themed music will play. If the termperature is lower than 30 degrees F, colder
 theemed music would be loaded. 
 
+
+i![img](CSDev_Code/blob/master/Kevin/preview.png)
+
 ##Code
 The code can be found at CSDev_Code/Kevin/user_login/createDatabases
 and run node server.js. Be sure to have postgres running with a database created
