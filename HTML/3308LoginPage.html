@@ -1,0 +1,38 @@
+<html>
+	<link rel="stylesheet" id="test" type="text/css" href="./3308LoginPage.css">
+<head>
+	<link rel="stylesheet" id="tes2t" type="text/css" href="./3308LoginPage.css">
+	<script src='https://code.jquery.com/jquery-3.2.1.min.js'></script> 
+	<!-- <script src='://code.jquery.com/jquery-3.2.1.min.js'></script> -->
+<title>Account | Bytes By Dr. Comp</title>
+<body>
+	<div class="login-page">
+	<div class="form">
+		<img src="3308LoginIcon.png" class="avatar">
+		<form class="register-form" action="/signup" method="post">
+			<!-- want to put restrictions on username and password characters -->
+			<input type="text" name='signup_username' placeholder="Create a username" required>
+			<input type="password" name='signup_password' placeholder="Create a password" required>
+			<button>Sign up</button>
+		<p class="message">Already have an account? <a href="#">Login</a></p>
+		</form>
+
+		<form class="login-form" action="/login" method="post">
+		<input type="text" name='username' placeholder="Username">
+		<input type="password" name='password' placeholder="Password">
+		<button>Login</button>
+		<p class="message">Don't have an account? <a href="#">Sign up</a></p>
+
+		</form>
+	</div>
+	</div>
+
+
+	<script>
+		$('.message a').click(function()
+		{$('form').animate({height: "toggle", opacity: "toggle"}, "slow"); }
+		);
+	</script>
+</body>
+</head>
+</html>
