@@ -1,0 +1,13 @@
+This directory houses all the work that I have done towards the project any notes. Mini projects that I have completed
+for this project can be seen on my github.
+
+User inputs a location, a request is made to Open Weather to fetch the temperature, 
+a query is made to fetch a playlist stored in a database and then displayed to the user using EJS.
+
+I completed  - 
+    request to the API to get the temperature of the location given by the user
+    the creation and linking of the database that will hold the playlists
+    created a condition that will determine which table to pull the playlist from
+    wrote the query to get the playlist
+    rendered the EJS to display the new data
+    
