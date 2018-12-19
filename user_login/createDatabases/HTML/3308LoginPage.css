@@ -1,0 +1,97 @@
+body
+{
+	background: url(3308LoginBackground.jpg);
+	background-size: cover;
+	background-position: center;
+}
+
+.avatar
+{
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	position: absolute;
+	top: -50px;
+	left: calc(50% - 50px);
+}
+
+.login-page
+{
+	width: 375px;
+	padding: 10% 0 0;
+	margin: auto;
+}
+
+.form
+{
+	position: relative;
+	max-width: 350px;
+	background: transparent;
+	margin: 0 auto 100px;
+	padding: 45px;
+	text-align: center;
+	border: solid ;
+
+	-webkit-box-shadow: -3px 3px 15px 0px rgba(22, 63, 93, 0.91);
+	-moz-box-shadow:    -3px 3px 15px 0px rgba(22, 63, 93, 0.91);
+	box-shadow:         -3px 3px 15px 0px rgba(22, 63, 93, 0.91);
+}
+
+.form input
+{
+	font-family: monospace;
+	outline: none;
+	background: transparent;
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid black;
+	margin: 0 0 15px;
+	padding: 15px;
+	box-sizing: border-box;
+	font-size: 16px;
+	color: black;
+}
+
+.form button
+{
+	font-family: monospace;
+	text-transform: uppercase;
+	outline: 0;
+	background: #4998df;
+	width: 100%;
+	border: 0;
+	padding: 15px;
+	color: white;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.form button:hover, .form button:active
+{
+	background: #ffd854;
+}
+
+.form .message
+{
+	font-family: monospace;
+	margin: 14px 0 0;
+	color: black;
+	font-size: 14px;
+}
+
+.form .message a
+{
+	font-family: monospace;
+	color: #4998df;
+	text-decoration: none;
+}
+
+.form .message a:hover
+{
+	color: #ffd854;
+}
+
+.form .register-form
+{
+	display: none;
+}

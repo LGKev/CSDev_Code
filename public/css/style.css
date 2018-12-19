@@ -1,0 +1,90 @@
+body {
+  width: 800px;
+  margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
+  
+  /* adding background picture */
+  background: url(3308LoginBackground.jpg);
+	background-size: cover;
+	background-position: center;
+}
+.container {
+  width: 600px;
+  margin: 0 auto;
+  
+  /* container box details */
+  position: relative;
+	background: transparent;
+	padding: 45px;
+	text-align: center;
+	border: solid ;
+
+	-webkit-box-shadow: -3px 3px 15px 0px rgba(22, 63, 93, 0.91);
+	-moz-box-shadow:    -3px 3px 15px 0px rgba(22, 63, 93, 0.91);
+	box-shadow:         -3px 3px 15px 0px rgba(22, 63, 93, 0.91);
+}
+fieldset {
+  border: none;
+}
+.weather-input, p {
+  font-weight:300;
+  width: 100%;
+  font-size: 25px;
+  border:0px;
+  outline: none;
+  width: 100%;
+  color: #4b545f;
+  background: #fff;
+  font-family: Open Sans,Verdana;
+  padding: 10px 15px;
+  margin: 30px 0px;
+
+}
+.weather-input:focus {
+  border-bottom:1px solid #ddd;
+}
+.get-weather-button {
+  background-color: transparent;
+  border:2px solid #ddd;
+  padding:10px 30px;
+  width: 100%;
+  min-width: 350px;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -ms-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  border-radius: 30px;
+  
+  /* details */
+  font-family: monospace;
+	background: #4998df;
+	border: 0;
+	padding: 15px;
+	color: white;
+	font-size: 16px;
+	cursor: pointer;
+
+}
+.button:hover {
+  border:2px solid #515151;
+  /* details */ 
+  background: #ffd854;
+}
+
+.message {
+  text-align: center;
+  font-size: 18px;
+  color: black;
+  /* details */ 
+  font-family: monospace;
+}
+
+.weather {
+  text-align: center;
+}
+
+iframe {
+  display:block;
+  margin: 0 auto;
+}
